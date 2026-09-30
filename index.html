@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#910023">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23910023%22/><text x=%2232%22 y=%2243%22 text-anchor=%22middle%22 font-size=%2238%22 fill=%22white%22>s</text></svg>">
+  <title>Sigma Cavas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="login" class="login-view">
+    <div class="login-photo" aria-hidden="true">
+      <div class="login-quote">
+        <span class="eyebrow light">TRAZABILIDAD DE PRINCIPIO A FIN</span>
+        <h1>Cada botella sabe dónde está y por qué se movió.</h1>
+        <p>Sistema de Administración de Cavas de Sigma Foods.</p>
+      </div>
+    </div>
+    <div class="login-panel">
+      <div class="brand brand-large"><strong>sigma</strong><span>Cavas</span></div>
+      <div class="login-copy">
+        <span class="eyebrow">BIENVENIDA</span>
+        <h2>Tu cava, clara y bajo control.</h2>
+        <p>Consulta existencias, registra movimientos y sigue cada botella desde un solo lugar.</p>
+      </div>
+      <button id="loginBtn" class="btn primary wide"><i data-lucide="building-2"></i> Iniciar sesión con Microsoft</button>
+      <p class="helper center">Usa tu cuenta corporativa. Tu acceso se valida con Microsoft Entra ID.</p>
+      <p class="login-foot">Uso exclusivo de colaboradores autorizados de Sigma Foods.</p>
+    </div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Abrir navegación"><i data-lucide="menu"></i></button>
+      <button class="brand nav-brand" data-page="inicio"><strong>sigma</strong><span>Cavas</span></button>
+      <label class="global-search"><i data-lucide="search"></i><input id="globalSearch" aria-label="Buscador global" placeholder="Busca botella, vino, lote, evento u orden"></label>
+      <button class="btn secondary scan-top" data-page="escaneo"><i data-lucide="scan-line"></i><span>Escanear</span></button>
+      <button class="icon-btn notification" aria-label="4 alertas"><i data-lucide="bell"></i><b>4</b></button>
+      <label class="role-select"><span>Ver como <small>Solo prototipo</small></span><select id="roleSelect"><option>Responsable de cavas</option><option>Operador de cava</option><option>Solicitante</option><option>Autorizador</option><option>Auditor</option><option>Administrador</option></select></label>
+      <button class="profile" id="profileBtn"><span class="avatar">DR</span><span><strong>Daniela Ríos</strong><small id="profileRole">Responsable de cavas</small></span><i data-lucide="chevron-down"></i></button>
+      <div class="profile-menu hidden" id="profileMenu"><button>Mi perfil</button><button>Zona horaria: UTC-6</button><button id="logoutBtn">Cerrar sesión</button></div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <nav id="sideNav">
+        <button class="nav-item active" data-page="inicio"><i data-lucide="house"></i><span>Inicio</span></button>
+        <p>OPERACIÓN</p>
+        <button class="nav-item" data-page="recepcion"><i data-lucide="package-plus"></i><span>Recepción de lotes</span></button>
+        <button class="nav-item" data-page="escaneo"><i data-lucide="scan-line"></i><span>Escaneo</span></button>
+        <button class="nav-item" data-page="asignar"><i data-lucide="map-pin-check"></i><span>Asignar y ubicar</span><b>3</b></button>
+        <button class="nav-item" data-page="eventos"><i data-lucide="calendar-days"></i><span>Eventos</span></button>
+        <button class="nav-item" data-page="ordenes"><i data-lucide="clipboard-list"></i><span>Órdenes de salida</span></button>
+        <button class="nav-item" data-page="ajustes"><i data-lucide="sliders-horizontal"></i><span>Ajustes</span><b>1</b></button>
+        <p>INVENTARIO</p>
+        <button class="nav-item" data-page="cavas"><i data-lucide="warehouse"></i><span>Cavas</span></button>
+        <button class="nav-item" data-page="anaquel"><i data-lucide="layout-grid"></i><span>Anaqueles</span></button>
+        <button class="nav-item" data-page="vinos"><i data-lucide="wine"></i><span>Vinos</span></button>
+        <button class="nav-item" data-page="consultas"><i data-lucide="history"></i><span>Consultas e historial</span></button>
+        <p>ANÁLISIS</p>
+        <button class="nav-item" data-page="reportes"><i data-lucide="chart-no-axes-combined"></i><span>Reportes</span></button>
+        <button class="nav-item" data-page="ia"><i data-lucide="sparkles"></i><span>Asistente IA</span><em>IA</em></button>
+        <p>ADMINISTRACIÓN</p>
+        <button class="nav-item" data-page="catalogos"><i data-lucide="library"></i><span>Catálogos</span></button>
+        <button class="nav-item admin-only" data-page="administracion"><i data-lucide="shield-check"></i><span>Usuarios y permisos</span></button>
+        <button class="nav-item" data-page="auditoria"><i data-lucide="notebook-tabs"></i><span>Auditoría</span></button>
+      </nav>
+      <button class="collapse" id="collapseBtn"><i data-lucide="panel-left-close"></i><span>Contraer menú</span></button>
+    </aside>
+
+    <main id="content" tabindex="-1"></main>
+
+    <nav class="mobile-nav">
+      <button data-page="inicio"><i data-lucide="house"></i><span>Inicio</span></button>
+      <button data-page="escaneo"><i data-lucide="scan-line"></i><span>Escanear</span></button>
+      <button data-page="eventos"><i data-lucide="calendar-days"></i><span>Eventos</span></button>
+      <button data-page="consultas"><i data-lucide="search"></i><span>Consultas</span></button>
+      <button id="mobileMore"><i data-lucide="menu"></i><span>Más</span></button>
+    </nav>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status"><i data-lucide="circle-check"></i><span></span><button aria-label="Cerrar"><i data-lucide="x"></i></button></div>
+  <div id="modalRoot"></div>
+  <script src="app.js"></script>
+</body>
+</html>
